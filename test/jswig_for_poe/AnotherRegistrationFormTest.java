@@ -16,9 +16,9 @@ import static org.junit.jupiter.api.Assertions.*;
  *
  * @author Reyaan
  */
-public class LoginFormTest {
+public class AnotherRegistrationFormTest {
     
-    public LoginFormTest() {
+    public AnotherRegistrationFormTest() {
     }
     
     @BeforeAll
@@ -38,39 +38,41 @@ public class LoginFormTest {
     }
 
     /**
-     * Test of actionPerformed method, of class LoginForm.
+     * Test of actionPerformed method, of class AnotherRegistrationForm.
      */
     @Test
     public void testActionPerformed() {
         System.out.println("actionPerformed");
         ActionEvent e = null;
-        LoginForm instance = new LoginForm();
+        AnotherRegistrationForm instance = new AnotherRegistrationForm();
         instance.actionPerformed(e);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
 
     /**
-     * Test of main method, of class LoginForm.
+     * Test of main method, of class AnotherRegistrationForm.
      */
     @Test
-    public void testMain() {
+    public void testMain() throws Exception {
         System.out.println("main");
         String[] args = null;
-        LoginForm.main(args);
+        AnotherRegistrationForm.main(args);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
-
+    
     @test
     public void checkUsernameFormatSuccess(){
     
-        registerUser register = new registerUser();
-        result = loginUser.
+        LoginForm register = new LoginForm();
+        result = LoginForm.username;
     }
     
     @test
-    public void checkUsernameFormatFail(){
+    void checkUsernameFormatFail(){
+        LoginForm login = new LoginForm();
+        assertNotEquals(Kyle!!!!!!,login.checkUserName)
     
     }
     
@@ -84,6 +86,4 @@ public class LoginFormTest {
     
     }
     
-    
-    }//end of test username class
-}//end of main class
+}

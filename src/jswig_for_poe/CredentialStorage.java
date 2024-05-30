@@ -6,7 +6,7 @@ package jswig_for_poe;
 
 /**
  *
- * @author 
+ * @author Reyaan Abrahams
  * could make constructor for files 
  * could store users inside a hash maps
  * 

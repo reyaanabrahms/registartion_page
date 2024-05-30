@@ -220,11 +220,18 @@ class AnotherRegistrationForm extends JFrame implements ActionListener {
         return tmp;
     }
 
-     private boolean check_username(String username) {
-         return username.length() <=5 && username.contains("_");
+    //function to check if the conditions of the username is met
+     private boolean checkUserName(String username) {
+        // return username.length() <=5 && username.contains("_");
+                 if (username.length() <= 5) {
+            res.setText("Username is not formmated correctl please ensure it hase a underscore and contains no more then 5 characters");
+            return false;
+     }
+            return true;
      }
     
-    private boolean check_password(String pass) {
+     //fuction to check the password conditions are met
+    private boolean checkPasswordComplexity(String pass) {
         // Is password longer than 8
         if (pass.length() < 8) {
             res.setText("Password needs to be longer.");
@@ -239,6 +246,7 @@ class AnotherRegistrationForm extends JFrame implements ActionListener {
                 break;
             }
         }
+        //this runs the if statment called test
         if (!test) {
             res.setText("Password needs to contain a capital.");
             return false;
@@ -252,6 +260,7 @@ class AnotherRegistrationForm extends JFrame implements ActionListener {
                 break;
             }
         }
+        //this runs the if statment of special characters 
         if (!test) {
             res.setText("Password needs to contain a special character.");
             return false;
@@ -265,6 +274,7 @@ class AnotherRegistrationForm extends JFrame implements ActionListener {
                 break;
             }
         }
+        //this runs a the function that requires the password to have a number
         if (!test) {
             res.setText("Password needs to contain a number.");
             return false;
@@ -276,16 +286,16 @@ class AnotherRegistrationForm extends JFrame implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == sub) {
-            String pass = password.getText();
+            String passw = password.getText();
            String username =uName.getText();
 
            //username check function
-            if(!check_username(username)){
+            if(!checkUserName(username)){
            return;
            }
            
            //call check function
-            if (!check_password(pass)) {
+            if (!checkPasswordComplexity(passw)) {
                 return;
             }
 
@@ -304,7 +314,7 @@ class AnotherRegistrationForm extends JFrame implements ActionListener {
                 res.setText("Registration Successfully..");
 
                 CredentialStorage.username = uName.getText();
-                CredentialStorage.password = pass;
+                CredentialStorage.password = passw;
 
                 // Spawn the new login page.
                 SwingUtilities.invokeLater(() -> {
