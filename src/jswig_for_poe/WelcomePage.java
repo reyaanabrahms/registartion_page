@@ -18,10 +18,6 @@ public class WelcomePage extends javax.swing.JFrame {
         initComponents();
     }
     
-//public void showDetails(String username){
-//jTextField2.setText(CredentialStorage.username);
-//};
-
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -64,7 +60,6 @@ public class WelcomePage extends javax.swing.JFrame {
             }
         });
 
-        jTextField2.setText("jTextField2");
         jTextField2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField2ActionPerformed(evt);
@@ -147,6 +142,10 @@ public class WelcomePage extends javax.swing.JFrame {
    WindowEvent closeWindow = new WindowEvent(this, WindowEvent.WINDOW_CLOSING);
    Toolkit.getDefaultToolkit().getSystemEventQueue().postEvent(closeWindow);
    }
+   
+   
+   
+   
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -175,6 +174,14 @@ public class WelcomePage extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new WelcomePage().setVisible(true);
+                
+                String taskName = JOptionPane.showInputDialog(null,"Enter the task name:","Task Input",JOptionPane.QUESTION_MESSAGE);
+                
+                if(taskName != null && !taskName.trim().isEmpty()){
+                    System.out.println("Task name entered:"+ taskName);
+                } else {
+                    System.out.println("No task name entered or dialog was cancelled.");
+                }
             
             }
         });

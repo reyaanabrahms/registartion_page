@@ -13,6 +13,7 @@ package jswig_for_poe;
  */
 public class CredentialStorage {
     public static String username;
+    public static String name;
     public static String password;
     public static String lastname;
 }
