@@ -62,28 +62,38 @@ public class AnotherRegistrationFormTest {
         fail("The test case is a prototype.");
     }
     
-    @test
-    public void checkUsernameFormatSuccess(){
-    
-        LoginForm register = new LoginForm();
-        result = LoginForm.username;
+    @Test
+    public void checkUsernameFormat(){
+        AnotherRegistrationForm form = new AnotherRegistrationForm();
+        boolean correct = form.checkUserName("user");
+        assert(!correct);
+        
+        correct = form.checkUserName("username_");
+        assert(!correct);
+        
+        correct = form.checkUserName("us_er");
+        assert(correct);
+        
+        correct = form.checkUserName("_us");
+        assert(correct);
     }
     
-    @test
-    void checkUsernameFormatFail(){
-        LoginForm login = new LoginForm();
-        assertNotEquals(Kyle!!!!!!,login.checkUserName)
-    
+    @Test
+    public void checkPasswordFormat(){
+        AnotherRegistrationForm form = new AnotherRegistrationForm();
+        boolean correct = form.checkPasswordComplexity("asd");
+        assert(!correct);
+        
+        correct = form.checkPasswordComplexity("asdfddfg");
+        assert(!correct);
+        
+        correct = form.checkPasswordComplexity("asdasd1232");
+        assert(!correct);
+        
+        correct = form.checkPasswordComplexity("123128sdjh3kh_");
+        assert(!correct);
+        
+        correct = form.checkPasswordComplexity("123128sdjh3kh_ASD");
+        assert(correct);
     }
-    
-    @test
-    public void checkPasswordFormatSuccess(){
-    
-    }
-    
-    @test
-    public void checkPasswordFormatFail(){
-    
-    }
-    
 }

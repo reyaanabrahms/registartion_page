@@ -17,22 +17,22 @@ import static org.junit.jupiter.api.Assertions.*;
  * @author Reyaan
  */
 public class LoginFormTest {
-    
+
     public LoginFormTest() {
     }
-    
+
     @BeforeAll
     public static void setUpClass() {
     }
-    
+
     @AfterAll
     public static void tearDownClass() {
     }
-    
+
     @BeforeEach
     public void setUp() {
     }
-    
+
     @AfterEach
     public void tearDown() {
     }
@@ -62,28 +62,25 @@ public class LoginFormTest {
         fail("The test case is a prototype.");
     }
 
-    @test
-    public void checkUsernameFormatSuccess(){
-    
-        registerUser register = new registerUser();
-        result = loginUser.
+    @Test
+    public void checkUsernameFormatSuccess() {
+        //registerUser register = new registerUser();
+        //result = loginUser.
     }
-    
-    @test
-    public void checkUsernameFormatFail(){
-    
+
+    @Test
+    public void checkUsernameFormatFail() {
+
     }
-    
-    @test
-    public void checkPasswordFormatSuccess(){
-    
+
+    @Test
+    public void checkPasswordFormatSuccess() {
+
     }
-    
-    @test
-    public void checkPasswordFormatFail(){
-    
+
+    @Test
+    public void checkPasswordFormatFail() {
+
     }
-    
-    
-    }//end of test username class
-}//end of main class
+
+}//end of test username class
