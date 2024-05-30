@@ -6,9 +6,13 @@ package jswig_for_poe;
 
 /**
  *
- * @author life
+ * @author 
+ * could make constructor for files 
+ * could store users inside a hash maps
+ * 
  */
 public class CredentialStorage {
     public static String username;
     public static String password;
+    public static String lastname;
 }
