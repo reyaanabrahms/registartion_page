@@ -22,10 +22,10 @@ public class AnotherRegistrationFormTest {
         boolean correct = form.checkUserName("user");
         assert (!correct);
 
-        correct = form.checkUserName("username_");
+        correct = form.checkUserName("Kyle!!!!!!");
         assert (!correct);
 
-        correct = form.checkUserName("us_er");
+        correct = form.checkUserName("kyl_1");
         assert (correct);
 
         correct = form.checkUserName("_us");
@@ -41,10 +41,10 @@ public class AnotherRegistrationFormTest {
         correct = form.checkPasswordComplexity("asdfddfg");
         assert (!correct);
 
-        correct = form.checkPasswordComplexity("asdasd1232");
-        assert (!correct);
+        correct = form.checkPasswordComplexity("CH&&sec@ke99!");
+        assert (correct);
 
-        correct = form.checkPasswordComplexity("123128sdjh3kh_");
+        correct = form.checkPasswordComplexity("password");
         assert (!correct);
 
         correct = form.checkPasswordComplexity("123128sdjh3kh_ASD");

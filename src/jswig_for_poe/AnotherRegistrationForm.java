@@ -23,7 +23,6 @@ class AnotherRegistrationForm extends JFrame implements ActionListener {
     final private JPasswordField password;
     final private JButton sub;
     final private JButton reset;
-    final private JTextArea tout, resadd;
 
     //Theses Strings are for pre-inputed value
     final private ArrayList<String> dates;
@@ -49,7 +48,7 @@ class AnotherRegistrationForm extends JFrame implements ActionListener {
             years.add("" + jasda);
         }
         setTitle("Registration Form");
-        setBounds(300, 90, 1100, 800);
+        setBounds(300, 90, 705, 800);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setResizable(false);
 
@@ -58,8 +57,9 @@ class AnotherRegistrationForm extends JFrame implements ActionListener {
 
         // Title
         title = new JLabel("Registration Form");
-        title.setFont(new Font("Arial", Font.PLAIN, 30));
-        title.setBounds(350, 30, 300, 30);
+        title.setFont(new Font("Arial", Font.PLAIN , 30));
+        title.setHorizontalAlignment(SwingConstants.CENTER);
+        title.setBounds(100, 30, 505, 50);
         container1.add(title);
 
         // Name
@@ -68,9 +68,9 @@ class AnotherRegistrationForm extends JFrame implements ActionListener {
         name.setBounds(100, 100, 100, 20);
         container1.add(name);
 
-        tName = new JTextField("");
+        tName = new JTextField();
         tName.setFont(new Font("Arial", Font.PLAIN, 20));
-        tName.setBounds(200, 100, 200, 30);
+        tName.setBounds(325, 100, 280, 30);
         container1.add(tName);
 
         // Surname
@@ -79,9 +79,9 @@ class AnotherRegistrationForm extends JFrame implements ActionListener {
         sname.setBounds(100, 150, 100, 20);
         container1.add(sname);
 
-        tSname = new JTextField("");
+        tSname = new JTextField();
         tSname.setFont(new Font("Arial", Font.PLAIN, 20));
-        tSname.setBounds(200, 150, 200, 30);
+        tSname.setBounds(325, 150, 280, 30);
         container1.add(tSname);
 
         // Password label
@@ -93,7 +93,7 @@ class AnotherRegistrationForm extends JFrame implements ActionListener {
         //password field
         password = new JPasswordField();
         password.setFont(new Font("Arial", Font.PLAIN, 15));
-        password.setBounds(200, 200, 200, 30);
+        password.setBounds(325, 200, 280, 30);
         container1.add(password);
 
         // Username label
@@ -105,7 +105,7 @@ class AnotherRegistrationForm extends JFrame implements ActionListener {
         //username text field
         userText = new JTextField();
         userText.setFont(new Font("Arial", Font.PLAIN, 15));
-        userText.setBounds(300, 250, 200, 30);
+        userText.setBounds(325, 250, 280, 30);
         container1.add(userText);
 
         // Gender
@@ -118,14 +118,14 @@ class AnotherRegistrationForm extends JFrame implements ActionListener {
         male = new JRadioButton("Male");
         male.setFont(new Font("Arial", Font.PLAIN, 15));
         male.setSelected(true);
-        male.setBounds(200, 300, 80, 30);
+        male.setBounds(325, 300, 80, 30);
         container1.add(male);
 
         //A radio button for pre-made options
         female = new JRadioButton("Female");
         female.setFont(new Font("Arial", Font.PLAIN, 15));
         female.setSelected(false);
-        female.setBounds(300, 300, 100, 30);
+        female.setBounds(400, 300, 100, 30);
         container1.add(female);
 
         gengp = new ButtonGroup();
@@ -141,19 +141,19 @@ class AnotherRegistrationForm extends JFrame implements ActionListener {
         //combo box for day
         date = new JComboBox(dates.toArray());
         date.setFont(new Font("Arial", Font.PLAIN, 15));
-        date.setBounds(200, 350, 80, 30);
+        date.setBounds(325, 350, 80, 30);
         container1.add(date);
 
         //combo box for month
         month = new JComboBox(months.toArray());
         month.setFont(new Font("Arial", Font.PLAIN, 15));
-        month.setBounds(300, 350, 100, 30);
+        month.setBounds(405, 350, 100, 30);
         container1.add(month);
 
         //combo box for the years
         year = new JComboBox(years.toArray());
         year.setFont(new Font("Arial", Font.PLAIN, 15));
-        year.setBounds(420, 350, 100, 30);
+        year.setBounds(505, 350, 100, 30);
         container1.add(year);
 
         // Address label
@@ -165,47 +165,32 @@ class AnotherRegistrationForm extends JFrame implements ActionListener {
         //text box for the your address
         tadd = new JTextArea();
         tadd.setFont(new Font("Arial", Font.PLAIN, 15));
-        tadd.setBounds(200, 400, 250, 100);
+        tadd.setBounds(100, 450, 505, 100);
         tadd.setLineWrap(true);
         container1.add(tadd);
 
         // Terms and Conditions
         term = new JCheckBox("Accept Terms And Conditions.");
         term.setFont(new Font("Arial", Font.PLAIN, 15));
-        term.setBounds(100, 520, 250, 20);
+        term.setBounds(100, 570, 250, 20);
         container1.add(term);
 
         // Buttons for the submit
         sub = new JButton("Submit");
         sub.setFont(new Font("Arial", Font.PLAIN, 15));
-        sub.setBounds(100, 550, 100, 30);
+        sub.setBounds(100, 600, 100, 30);
         sub.addActionListener(this);
         container1.add(sub);
 
         //button for the reset button
         reset = new JButton("Reset");
         reset.setFont(new Font("Arial", Font.PLAIN, 15));
-        reset.setBounds(220, 550, 100, 30);
+        reset.setBounds(505, 600, 100, 30);
         reset.addActionListener(this);
         container1.add(reset);
 
-        // Output 
-        tout = new JTextArea();
-        tout.setFont(new Font("Arial", Font.PLAIN, 15));
-        tout.setBounds(500, 100, 300, 400);
-        tout.setLineWrap(true);
-        tout.setEditable(false);
-        container1.add(tout);
-
         res = createJLabel("", 20, 100, 500, 500, 25);
         container1.add(res);
-
-        //reset button
-        resadd = new JTextArea();
-        resadd.setFont(new Font("Arial", Font.PLAIN, 15));
-        resadd.setBounds(580, 175, 200, 75);
-        resadd.setLineWrap(true);
-        container1.add(resadd);
 
         setVisible(true);
     }
@@ -310,8 +295,6 @@ class AnotherRegistrationForm extends JFrame implements ActionListener {
                 String data2 = String.format("DOB: %s/%s/%s\n", (String) date.getSelectedItem(), (String) month.getSelectedItem(), (String) year.getSelectedItem());
 
                 String data3 = "Address : " + tadd.getText();
-                tout.setText(data + data1 + data2 + data3);
-                tout.setEditable(false);
 
                 System.out.println(data + data1 + data2 + data3);
 
@@ -331,8 +314,6 @@ class AnotherRegistrationForm extends JFrame implements ActionListener {
                 // Hide the window.
                 this.dispose();
             } else {
-                tout.setText("");
-                resadd.setText("");
                 res.setText("Please accept the terms & conditions..");
             }
         } else if (e.getSource() == reset) {
@@ -341,12 +322,10 @@ class AnotherRegistrationForm extends JFrame implements ActionListener {
             tadd.setText(def);
             tSname.setText(def);
             res.setText(def);
-            tout.setText(def);
             term.setSelected(false);
             date.setSelectedIndex(0);
             month.setSelectedIndex(0);
             year.setSelectedIndex(0);
-            resadd.setText(def);
         }//end of if
     }//end of action performed class
 
