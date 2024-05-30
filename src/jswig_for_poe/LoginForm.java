@@ -1,3 +1,4 @@
+
 package jswig_for_poe;
 
 import javax.swing.*;
@@ -5,33 +6,52 @@ import java.awt.*;
 import java.awt.event.*;
 
 public class LoginForm extends JFrame implements ActionListener {
-
     // Components
-    final private JTextField usernameField;
-    final private JPasswordField passwordField;
-    final private JButton loginButton;
-
+    final private Container container1;
+    private final JTextField usernameField;
+    private final JPasswordField passwordField;
+    private final JButton loginButton;
+    private final JLabel username_text, password_text,title;
     public LoginForm() {
+        
         // Frame setup
         setTitle("Login Form");
-        setSize(300, 200);
+        setSize(700, 425);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setLocationRelativeTo(null);
-        setLayout(new GridLayout(3, 2));
+     // setLocationRelativeTo(null);
+        container1 = getContentPane();
+        container1.setLayout(null);
+        
+        title = new JLabel("Login Form");
+        title.setFont(new Font("Arial", Font.PLAIN , 30));
+        title.setHorizontalAlignment(SwingConstants.CENTER);
+        title.setBounds(100, 30, 500, 50);
+        container1.add(title);
+
 
         // Labels and fields
-        add(new JLabel("Username:"));
+        username_text = new JLabel("Username:");
+        username_text.setBounds(100, 100, 250, 50);
+        container1.add(username_text);
+        
         usernameField = new JTextField();
-        add(usernameField);
+        usernameField.setBounds(350, 100, 250, 50);
+        container1.add(usernameField);
 
-        add(new JLabel("Password:"));
+        password_text = new JLabel("Password:");
+        password_text.setBounds(100, 150, 250, 50);
+        container1.add(password_text);
+        
         passwordField = new JPasswordField();
-        add(passwordField);
+        passwordField.setBounds(350, 150, 250, 50);
+        container1.add(passwordField);
 
         // Login button
         loginButton = new JButton("Login");
         loginButton.addActionListener(this);
-        add(loginButton);
+        loginButton.setBounds(100,225,500,50);
+        
+       container1.add(loginButton);
 
         setVisible(true);
     }
@@ -43,8 +63,9 @@ public class LoginForm extends JFrame implements ActionListener {
             String username = usernameField.getText();
             String password = new String(passwordField.getPassword());
 
-            if (username.equals(CredentialStorage.username) && password.equals(CredentialStorage.password)) {
-                JOptionPane.showMessageDialog(this, "welcome " + username + "  it is great to see you again");
+            // For simplicity, let's assume username is "admin" and password is "password"
+            if (username.equals(username) && password.equals(password)) {
+                JOptionPane.showMessageDialog(this, "Login successful!");
             } else {
                 JOptionPane.showMessageDialog(this, "Invalid username or password!");
             }
@@ -56,8 +77,11 @@ public class LoginForm extends JFrame implements ActionListener {
     }
 
     public static void main(String[] args) {
-        SwingUtilities.invokeLater(() -> {
-            new LoginForm();
+        SwingUtilities.invokeLater(new Runnable() {
+            public void run() {
+                new LoginForm();
+            }
         });
     }
+ 
 }
