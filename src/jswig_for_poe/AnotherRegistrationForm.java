@@ -13,8 +13,8 @@ class AnotherRegistrationForm extends JFrame implements ActionListener {
 
     //All componants that will be used for the registration form
     final private Container container1;
-    final private JLabel title, name, sname, gender, dob, add, res, uName;
-    final private JTextField tName, tSname;
+    final private JLabel title, name, sname, gender, dob, add, res, uName,pass;
+    final private JTextField tName, tSname, userText;
     final private JRadioButton male, female;
     final private ButtonGroup gengp;
     final private JComboBox date, month, year;
@@ -43,175 +43,174 @@ class AnotherRegistrationForm extends JFrame implements ActionListener {
         for (int i = 1; i <= 12; i++) {
             months.add("" + i);
         }
-        
+
         years = new ArrayList<>();
         for (int jasda = 1995; jasda <= 2019; jasda++) {
             years.add("" + jasda);
         }
+            setTitle("Registration Form");
+           setBounds(300, 90, 1100, 800);
+           setDefaultCloseOperation(EXIT_ON_CLOSE);
+           setResizable(false);
 
-        setTitle("Registration Form");
-        setBounds(300, 90, 900, 600);
-        setDefaultCloseOperation(EXIT_ON_CLOSE);
-        setResizable(false);
+           container1 = getContentPane();
+           container1.setLayout(null);
 
-        container1 = getContentPane();
-        container1.setLayout(null);
+           // Title
+           title = new JLabel("Registration Form");
+           title.setFont(new Font("Arial", Font.PLAIN, 30));
+           title.setBounds(350, 30, 300, 30);
+           container1.add(title);
 
-        title = new JLabel("Registration Form");
-        title.setFont(new Font("Arial", Font.PLAIN, 30));
-        title.setSize(300, 30);
-        title.setLocation(300, 30);
-        container1.add(title);
+           // Name
+           name = new JLabel("Name");
+           name.setFont(new Font("Arial", Font.PLAIN, 20));
+           name.setBounds(100, 100, 100, 20);
+           container1.add(name);
 
-        name = new JLabel("Name");
-        name.setFont(new Font("Arial", Font.PLAIN, 20));
-        name.setSize(100, 20);
-        name.setLocation(100, 100);
-        container1.add(name);
+           tName = new JTextField("");
+           tName.setFont(new Font("Arial", Font.PLAIN, 20));
+           tName.setBounds(200, 100, 200, 30);
+           container1.add(tName);
 
-        password = new JPasswordField();
-        password.setFont(new Font("Arial", Font.PLAIN, 15));
-        password.setSize(190, 20);
-        password.setLocation(200, 450);
-        container1.add(password);
+           // Surname
+           sname = new JLabel("Surname");
+           sname.setFont(new Font("Arial", Font.PLAIN, 20));
+           sname.setBounds(100, 150, 100, 20);
+           container1.add(sname);
 
-        uName = new JLabel("Enter your registration");
-        uName.setFont(new Font("Arial", Font.PLAIN, 20));
-        uName.setSize(100, 20);
-        uName.setLocation(100, 100);
-        container1.add(uName);
+           tSname = new JTextField("");
+           tSname.setFont(new Font("Arial", Font.PLAIN, 20));
+           tSname.setBounds(200, 150, 200, 30);
+           container1.add(tSname);
 
-        //Reistration text field
-        tName = new JTextField();
-        tName.setFont(new Font("Arial", Font.PLAIN, 15));
-        tName.setSize(190, 20);
-        tName.setLocation(200, 100);
-        container1.add(tName);
+           // Password label
+           pass = new JLabel("Password");
+           pass.setFont(new Font("Arial", Font.PLAIN, 20));
+           pass.setBounds(100, 200, 100, 20);
+           container1.add(pass);
 
-        //mobile number
-        sname = new JLabel("Mobile");
-        sname.setFont(new Font("Arial", Font.PLAIN, 20));
-        sname.setSize(100, 20);
-        sname.setLocation(100, 150);
-        container1.add(sname);
+           //password field
+           password = new JPasswordField();
+           password.setFont(new Font("Arial", Font.PLAIN, 15));
+           password.setBounds(200, 200, 200, 30);
+           container1.add(password);
 
-        //text field for mobile number
-        tSname = new JTextField();
-        tSname.setFont(new Font("Arial", Font.PLAIN, 15));
-        tSname.setSize(150, 20);
-        tSname.setLocation(200, 150);
-        container1.add(tSname);
+           // Username label
+           uName = new JLabel("Enter your username");
+           uName.setFont(new Font("Arial", Font.PLAIN, 20));
+           uName.setBounds(100, 250, 200, 20);
+           container1.add(uName);
 
-        //gender field
-        gender = new JLabel("Gender");
-        gender.setFont(new Font("Arial", Font.PLAIN, 20));
-        gender.setSize(100, 20);
-        gender.setLocation(100, 200);
-        container1.add(gender);
+           //username text field
+           userText = new JTextField();
+           userText.setFont(new Font("Arial", Font.PLAIN, 15));
+           userText.setBounds(300, 250, 200, 30);
+           container1.add(userText);
+
+           // Gender
+           gender = new JLabel("Gender");
+           gender.setFont(new Font("Arial", Font.PLAIN, 20));
+           gender.setBounds(100, 300, 100, 20);
+           container1.add(gender);
 
         //labels for gender 
-        male = new JRadioButton("Male");
-        male.setFont(new Font("Arial", Font.PLAIN, 15));
-        male.setSelected(true);
-        male.setSize(75, 20);
-        male.setLocation(200, 200);
-        container1.add(male);
+           male = new JRadioButton("Male");
+           male.setFont(new Font("Arial", Font.PLAIN, 15));
+           male.setSelected(true);
+           male.setBounds(200, 300, 80, 30);
+           container1.add(male);
 
         //A radio button for pre-made options
-        female = new JRadioButton("Female");
-        female.setFont(new Font("Arial", Font.PLAIN, 15));
-        female.setSelected(false);
-        female.setSize(80, 20);
-        female.setLocation(275, 200);
-        container1.add(female);
+           female = new JRadioButton("Female");
+           female.setFont(new Font("Arial", Font.PLAIN, 15));
+           female.setSelected(false);
+           female.setBounds(300, 300, 100, 30);
+           container1.add(female);
 
-        gengp = new ButtonGroup();
-        gengp.add(male);
-        gengp.add(female);
+           gengp = new ButtonGroup();
+           gengp.add(male);
+           gengp.add(female);
 
-        //Label for date of birth
-        dob = new JLabel("DOB");
-        dob.setFont(new Font("Arial", Font.PLAIN, 20));
-        dob.setSize(100, 20);
-        dob.setLocation(100, 250);
-        container1.add(dob);
+           // Date of Birth
+           dob = new JLabel("DOB");
+           dob.setFont(new Font("Arial", Font.PLAIN, 20));
+           dob.setBounds(100, 350, 100, 20);
+           container1.add(dob);
 
-        //combobox for the date of bith
-        date = new JComboBox(dates.toArray());
-        date.setFont(new Font("Arial", Font.PLAIN, 15));
-        date.setSize(100, 20);
-        date.setLocation(200, 250);
-        container1.add(date);
+           //combo box for day
+           date = new JComboBox(dates.toArray());
+           date.setFont(new Font("Arial", Font.PLAIN, 15));
+           date.setBounds(200, 350, 80, 30);
+           container1.add(date);
 
-        month = new JComboBox(months.toArray());
-        month.setFont(new Font("Arial", Font.PLAIN, 15));
-        month.setSize(100, 20);
-        month.setLocation(300, 250);
-        container1.add(month);
+           //combo box for month
+           month = new JComboBox(months.toArray());
+           month.setFont(new Font("Arial", Font.PLAIN, 15));
+           month.setBounds(300, 350, 100, 30);
+           container1.add(month);
 
-        year = new JComboBox(years.toArray());
-        year.setFont(new Font("Arial", Font.PLAIN, 15));
-        year.setSize(100, 20);
-        year.setLocation(400, 250);
-        container1.add(year);
+           //combo box for the years
+           year = new JComboBox(years.toArray());
+           year.setFont(new Font("Arial", Font.PLAIN, 15));
+           year.setBounds(420, 350, 100, 30);
+           container1.add(year);
 
-        //a label to enter you address
-        add = new JLabel("Address");
-        add.setFont(new Font("Arial", Font.PLAIN, 20));
-        add.setSize(100, 20);
-        add.setLocation(100, 300);
-        container1.add(add);
+           // Address label
+           add = new JLabel("Address");
+           add.setFont(new Font("Arial", Font.PLAIN, 20));
+           add.setBounds(100, 400, 100, 20);
+           container1.add(add);
 
-        tadd = new JTextArea();
-        tadd.setFont(new Font("Arial", Font.PLAIN, 15));
-        tadd.setSize(200, 75);
-        tadd.setLocation(200, 300);
-        tadd.setLineWrap(true);
-        container1.add(tadd);
+           //text box for the your address
+           tadd = new JTextArea();
+           tadd.setFont(new Font("Arial", Font.PLAIN, 15));
+           tadd.setBounds(200, 400, 250, 100);
+           tadd.setLineWrap(true);
+           container1.add(tadd);
 
-        //a check box for th eterms and conditions 
-        term = new JCheckBox("Accept Terms And Conditions.");
-        term.setFont(new Font("Arial", Font.PLAIN, 15));
-        term.setSize(250, 20);
-        term.setLocation(150, 400);
-        container1.add(term);
+           // Terms and Conditions
+           term = new JCheckBox("Accept Terms And Conditions.");
+           term.setFont(new Font("Arial", Font.PLAIN, 15));
+           term.setBounds(100, 520, 250, 20);
+           container1.add(term);
 
-        sub = new JButton("Submit");
-        sub.setFont(new Font("Arial", Font.PLAIN, 15));
-        sub.setSize(100, 20);
-        sub.setLocation(150, 450);
-        sub.addActionListener(this);
-        container1.add(sub);
+           // Buttons for the submit
+           sub = new JButton("Submit");
+           sub.setFont(new Font("Arial", Font.PLAIN, 15));
+           sub.setBounds(100, 550, 100, 30);
+           sub.addActionListener(this);
+           container1.add(sub);
 
-        //a button to clear all the text in each text box
-        reset = new JButton("Reset");
-        reset.setFont(new Font("Arial", Font.PLAIN, 15));
-        reset.setSize(100, 20);
-        reset.setLocation(270, 450);
-        reset.addActionListener(this);
-        container1.add(reset);
+           //button for the reset button
+           reset = new JButton("Reset");
+           reset.setFont(new Font("Arial", Font.PLAIN, 15));
+           reset.setBounds(220, 550, 100, 30);
+           reset.addActionListener(this);
+           container1.add(reset);
 
-        tout = new JTextArea();
-        tout.setFont(new Font("Arial", Font.PLAIN, 15));
-        tout.setSize(300, 400);
-        tout.setLocation(500, 100);
-        tout.setLineWrap(true);
-        tout.setEditable(false);
-        container1.add(tout);
+           // Output 
+           tout = new JTextArea();
+           tout.setFont(new Font("Arial", Font.PLAIN, 15));
+           tout.setBounds(500, 100, 300, 400);
+           tout.setLineWrap(true);
+           tout.setEditable(false);
+           container1.add(tout);
 
-        res = createJLabel("", 20, 100, 500, 500, 25);
-        container1.add(res);
+           res = createJLabel("", 20, 100, 500, 500, 25);
+           container1.add(res);
 
-        resadd = new JTextArea();
-        resadd.setFont(new Font("Arial", Font.PLAIN, 15));
-        resadd.setSize(200, 75);
-        resadd.setLocation(580, 175);
-        resadd.setLineWrap(true);
-        container1.add(resadd);
+           //reset button
+           resadd = new JTextArea();
+           resadd.setFont(new Font("Arial", Font.PLAIN, 15));
+           resadd.setBounds(580, 175, 200, 75);
+           resadd.setLineWrap(true);
+           container1.add(resadd);
 
-        setVisible(true);
-    }
-
+       setVisible(true);
+           }
+    
+    //this function is to give font family to all the box Jlabels
     private JLabel createJLabel(String text, int font_size, int x, int y, int w, int h) {
         JLabel tmp = new JLabel(text);
         tmp.setFont(new Font("Arial", Font.BOLD, font_size));
@@ -221,6 +220,10 @@ class AnotherRegistrationForm extends JFrame implements ActionListener {
         return tmp;
     }
 
+     private boolean check_username(String username) {
+         return username.length() <=5 && username.contains("_");
+     }
+    
     private boolean check_password(String pass) {
         // Is password longer than 8
         if (pass.length() < 8) {
@@ -274,11 +277,19 @@ class AnotherRegistrationForm extends JFrame implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == sub) {
             String pass = password.getText();
+           String username =uName.getText();
 
+           //username check function
+            if(!check_username(username)){
+           return;
+           }
+           
+           //call check function
             if (!check_password(pass)) {
                 return;
             }
 
+              //functions for date and gender  
             if (term.isSelected()) {
                 String data = String.format("Name: %s\nSurname: %s\n", tName.getText(), tSname.getText());
                 String data1 = String.format("Gender: %s\n", ((male.isSelected()) ? "Male" : "Female"));
@@ -292,7 +303,7 @@ class AnotherRegistrationForm extends JFrame implements ActionListener {
 
                 res.setText("Registration Successfully..");
 
-                CredentialStorage.username = tName.getText();
+                CredentialStorage.username = uName.getText();
                 CredentialStorage.password = pass;
 
                 // Spawn the new login page.
