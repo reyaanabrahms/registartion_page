@@ -44,7 +44,7 @@ public class LoginForm extends JFrame implements ActionListener {
             String password = new String(passwordField.getPassword());
 
             if (username.equals(CredentialStorage.username) && password.equals(CredentialStorage.password)) {
-                JOptionPane.showMessageDialog(this, "welcome " +username + "  it is great to see you again");
+                JOptionPane.showMessageDialog(this, "welcome " + username + "  it is great to see you again");
             } else {
                 JOptionPane.showMessageDialog(this, "Invalid username or password!");
             }

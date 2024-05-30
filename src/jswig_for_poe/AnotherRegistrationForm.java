@@ -230,7 +230,7 @@ class AnotherRegistrationForm extends JFrame implements ActionListener {
             res.setText("Username needs to contain an '_'.");
             return false;
         }
-        
+
         return true;
     }
 
@@ -316,13 +316,13 @@ class AnotherRegistrationForm extends JFrame implements ActionListener {
                 System.out.println(data + data1 + data2 + data3);
 
                 res.setText("Registration Successfully..");
-                
+
                 CredentialStorage.username = username;
                 CredentialStorage.password = passw;
 
-                System.out.println("Username: \""+CredentialStorage.username+"\"");
-                System.out.println("Password: \""+CredentialStorage.password+"\"");
-                
+                System.out.println("Username: \"" + CredentialStorage.username + "\"");
+                System.out.println("Password: \"" + CredentialStorage.password + "\"");
+
                 // Spawn the new login page.
                 SwingUtilities.invokeLater(() -> {
                     new LoginForm();
