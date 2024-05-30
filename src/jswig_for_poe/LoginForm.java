@@ -5,11 +5,11 @@ import java.awt.*;
 import java.awt.event.*;
 
 public class LoginForm extends JFrame implements ActionListener {
-    
+
     // Components
-    private JTextField usernameField;
-    private JPasswordField passwordField;
-    private JButton loginButton;
+    final private JTextField usernameField;
+    final private JPasswordField passwordField;
+    final private JButton loginButton;
 
     public LoginForm() {
         // Frame setup
@@ -43,8 +43,7 @@ public class LoginForm extends JFrame implements ActionListener {
             String username = usernameField.getText();
             String password = new String(passwordField.getPassword());
 
-            // For simplicity, let's assume username is "admin" and password is "password"
-            if (username.equals("admin") && password.equals("password")) {
+            if (username.equals(CredentialStorage.username) && password.equals(CredentialStorage.password)) {
                 JOptionPane.showMessageDialog(this, "Login successful!");
             } else {
                 JOptionPane.showMessageDialog(this, "Invalid username or password!");
@@ -57,10 +56,8 @@ public class LoginForm extends JFrame implements ActionListener {
     }
 
     public static void main(String[] args) {
-        SwingUtilities.invokeLater(new Runnable() {
-            public void run() {
-                new LoginForm();
-            }
+        SwingUtilities.invokeLater(() -> {
+            new LoginForm();
         });
     }
 }
