@@ -16,4 +16,7 @@ public class CredentialStorage {
     public static String name;
     public static String password;
     public static String lastname;
+    
+    public static boolean loggedIn;
+    public static String logged_username;
 }
