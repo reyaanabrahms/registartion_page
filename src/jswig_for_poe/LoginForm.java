@@ -51,7 +51,7 @@ public class LoginForm extends JFrame implements ActionListener {
         loginButton.addActionListener(this);
         loginButton.setBounds(100,225,500,50);
         
-       container1.add(loginButton);
+       container1.add(loginButton);  
 
         setVisible(true);
     }
@@ -63,9 +63,9 @@ public class LoginForm extends JFrame implements ActionListener {
             String username = usernameField.getText();
             String password = new String(passwordField.getPassword());
 
-            // For simplicity, let's assume username is "admin" and password is "password"
+            // this checks the username and password to see if it is the same as the one entered in the registration form"
             if (username.equals(username) && password.equals(password)) {
-                JOptionPane.showMessageDialog(this, "Login successful!");
+                JOptionPane.showMessageDialog(this, "Welcome to EasyKanban");
             } else {
                 JOptionPane.showMessageDialog(this, "Invalid username or password!");
             }
