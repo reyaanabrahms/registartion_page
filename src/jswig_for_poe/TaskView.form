@@ -141,6 +141,9 @@
       </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="TaskNumber">
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="TaskNumberActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>

@@ -4,6 +4,9 @@
  */
 package jswig_for_poe;
 
+import static java.lang.Integer.max;
+import static java.lang.Integer.min;
+import java.util.Random;
 import javax.swing.JOptionPane;
 
 /**
@@ -72,6 +75,12 @@ public class TaskView extends javax.swing.JFrame {
             }
         });
 
+        TaskNumber.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TaskNumberActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -136,6 +145,9 @@ public class TaskView extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void taskIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_taskIDActionPerformed
+Random rand = new Random();
+
+int rand_int1 = rand.nextInt(1000);
 
     }//GEN-LAST:event_taskIDActionPerformed
 
@@ -166,9 +178,10 @@ public class TaskView extends javax.swing.JFrame {
         DeveloperName.setText(CredentialStorage.name + CredentialStorage.lastname);
     }//GEN-LAST:event_DeveloperNameActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
+    private void TaskNumberActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TaskNumberActionPerformed
+
+    }//GEN-LAST:event_TaskNumberActionPerformed
+
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
@@ -176,7 +189,10 @@ public class TaskView extends javax.swing.JFrame {
             }
         });
     }
-
+ public static int getRandomNumber(int min, int max){
+         Random random = new Random();
+        return random.ints(min,max).findFirst().getAsInt();
+ }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField DeveloperName;
     private javax.swing.JButton Submit;
