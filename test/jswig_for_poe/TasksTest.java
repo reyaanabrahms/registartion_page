@@ -4,6 +4,11 @@
  */
 package jswig_for_poe;
 
+/**
+ *
+ * @author Reyaan
+ */
+
 import java.awt.event.ActionEvent;
 import java.lang.reflect.Field;
 import java.util.logging.Level;
@@ -11,6 +16,7 @@ import java.util.logging.Logger;
 import javax.swing.JButton;
 import org.junit.Test;
 
+//this is  atry catch for when a error is thrown it will parse it and continue with the program
 public class TasksTest {
     Object getField(Object object, String name) {
         try {
@@ -23,12 +29,15 @@ public class TasksTest {
         return null;
     }
 
+//These are the test or when the unit tests are done with the given names and task requirements
     void enterTestData(){
         Tasks.clearTasks();
         Tasks.add_new_task("Login feature", "Robyn Harrison", "Create Login to authenticate users", 8, "To Do");
         Tasks.add_new_task("Add Task Feature", "Mike Smith", "Create Add Task feature to add task  users", 10, "Doing");
     }
     
+    //From here this is the tasks will be tested with the spefic values given with the assigment
+    //This tests how much tasks will be made
     @Test
     public void testAddNewTask() {
         enterTestData();
@@ -36,6 +45,7 @@ public class TasksTest {
         assert(Tasks.tasks.size() == 2);
     }
     
+    //This is will test the description length that will be captured
     @Test
     public void testDescriptionLength() {
         Task short_enough = new Task("", "", "Task successfully captured", 0, 0, "");
@@ -45,6 +55,7 @@ public class TasksTest {
         assert(!too_long.checkTaskDescription());
     }
     
+    //This is testing the ID generation
     @Test
     public void testIDGeneration() {
         enterTestData();
@@ -62,6 +73,7 @@ public class TasksTest {
         }
     }
     
+    //Testing the total hours of all the tasks made
     @Test
     public void testTotalHours() {
         enterTestData();
