@@ -246,7 +246,7 @@ public class WelcomePage extends javax.swing.JFrame {
             wp.refreshTaskList();
         });
     }
-
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;

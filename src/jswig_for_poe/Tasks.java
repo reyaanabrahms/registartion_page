@@ -11,18 +11,33 @@ import java.util.ArrayList;
  * @author life
  */
 public class Tasks {
-    public static ArrayList<Task> tasks;
-    static int last_id = 0;
+    public static ArrayList<Task> tasks = new ArrayList<>();
+    static int last_id = 1;
     
     public static void add_new_task(String name, String description, int duration, String progressStatus) {
+        String dev_username = CredentialStorage.logged_username;
+        Tasks.add_new_task(name, dev_username, description, duration, progressStatus);
+    }
+    
+    public static void add_new_task(String name, String dev_username, String description, int duration, String progressStatus) {
         int number = last_id;
         last_id++;
         
-        String dev_username = CredentialStorage.logged_username;
-        String id = name.substring(0, 2) + ":" + number + ":" + dev_username.substring(dev_username.length() - 3);
-        
-        Task task = new Task(id, name, description, number, duration, progressStatus);
+        Task task = new Task(dev_username, name, description, number, duration, progressStatus);
         
         tasks.add(task);
+    }
+    
+    public static void clearTasks(){
+        tasks.clear();
+        last_id = 1;
+    }
+    
+    public static int returnTotalHours(){
+        int total = 0;
+        for (Task t: Tasks.tasks) {
+            total += t.duration;
+        }
+        return total;
     }
 }

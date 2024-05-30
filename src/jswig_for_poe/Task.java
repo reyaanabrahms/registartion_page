@@ -9,48 +9,36 @@ package jswig_for_poe;
  * @author life
  */
 public class Task {
-    String id;
+    String dev_username;
     String name;
     String description;
     int number;
     int duration;
     String progressStatus;
 
-    Task(String id, String name, String description, int number, int duration, String progressStatus) {
-        this.id = id;
+    Task(String dev_username, String name, String description, int number, int duration, String progressStatus) {
+        this.dev_username = dev_username;
         this.name = name;
         this.description = description;
         this.number = number;
         this.duration = duration;
         this.progressStatus = progressStatus;
     }
-
-    public String get_id() {
-        return this.id;
-    }
-
-    public String get_name() {
-        return this.name;
-    }
-
-    public String get_description() {
-        return this.description;
-    }
-
-    public int get_number() {
-        return this.number;
-    }
-
-    public int get_duration() {
-        return this.duration;
-    }
     
-    public String get_progressStatus() {
-        return this.progressStatus;
+    public String printTaskDetails(){
+        return "Task id: " + this.createTaskID() + ", name: " + this.name + ", description: " + this.description + ", number: " + this.number + ", duration: " + this.duration + ", status: " + this.progressStatus;
     }
     
     @Override
     public String toString(){
-        return "Task id: " + this.get_id() + ", name: " + this.get_name() + ", description: " + this.get_description() + ", number: " + this.get_number() + ", duration: " + this.get_duration() + ", status: " + this.get_progressStatus();
+        return this.printTaskDetails();
+    }
+    
+    public boolean checkTaskDescription() {
+        return this.description.length() <= 50;
+    }
+    
+    public String createTaskID(){
+        return this.name.toUpperCase().substring(0, 2) + ":" + this.number + ":" + this.dev_username.toUpperCase().substring(this.dev_username.length() - 3);
     }
 }

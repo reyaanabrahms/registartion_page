@@ -18,36 +18,34 @@ public class AnotherRegistrationFormTest {
 
     @Test
     public void checkUsernameFormat() {
-        AnotherRegistrationForm form = new AnotherRegistrationForm();
-        boolean correct = form.checkUserName("user");
+        boolean correct = AnotherRegistrationForm.checkUserName("user");
         assert (!correct);
 
-        correct = form.checkUserName("Kyle!!!!!!");
+        correct = AnotherRegistrationForm.checkUserName("Kyle!!!!!!");
         assert (!correct);
 
-        correct = form.checkUserName("kyl_1");
+        correct = AnotherRegistrationForm.checkUserName("kyl_1");
         assert (correct);
 
-        correct = form.checkUserName("_us");
+        correct = AnotherRegistrationForm.checkUserName("_us");
         assert (correct);
     }
 
     @Test
     public void checkPasswordFormat() {
-        AnotherRegistrationForm form = new AnotherRegistrationForm();
-        boolean correct = form.checkPasswordComplexity("asd");
+        boolean correct = AnotherRegistrationForm.checkPasswordComplexity("asd");
         assert (!correct);
 
-        correct = form.checkPasswordComplexity("asdfddfg");
+        correct = AnotherRegistrationForm.checkPasswordComplexity("asdfddfg");
         assert (!correct);
 
-        correct = form.checkPasswordComplexity("CH&&sec@ke99!");
+        correct = AnotherRegistrationForm.checkPasswordComplexity("CH&&sec@ke99!");
         assert (correct);
 
-        correct = form.checkPasswordComplexity("password");
+        correct = AnotherRegistrationForm.checkPasswordComplexity("password");
         assert (!correct);
 
-        correct = form.checkPasswordComplexity("123128sdjh3kh_ASD");
+        correct = AnotherRegistrationForm.checkPasswordComplexity("123128sdjh3kh_ASD");
         assert (correct);
     }
 }

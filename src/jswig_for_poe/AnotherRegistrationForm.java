@@ -206,24 +206,29 @@ class AnotherRegistrationForm extends JFrame implements ActionListener {
     }
 
     //function to check if the conditions of the username is met
-    public boolean checkUserName(String username) {
+    public static boolean checkUserName(String username) {
         if (username.length() > 5) {
-            res.setText("Username needs to be shorter.");
             return false;
         }
-        if (!username.contains("_")) {
-            res.setText("Username needs to contain an '_'.");
-            return false;
+        return username.contains("_");
+    }
+    
+    public void verifyUserName(String username){
+        if(!checkUserName(username)){
+            res.setText("Username needs to contain an '_' or be shorter.");
         }
-
-        return true;
     }
 
+    public void verifyPasswordComplexity(String pass){
+        if(!checkPasswordComplexity(pass)){
+            res.setText("Password needs to be at least 8 chars long, contain a capital letter, number and a special character.");
+        }
+    }
+    
     //fuction to check the password conditions are met
-    public boolean checkPasswordComplexity(String pass) {
+    public static boolean checkPasswordComplexity(String pass) {
         // Is password longer than 8
         if (pass.length() < 8) {
-            res.setText("Password needs to be longer.");
             return false;
         }
 
@@ -237,7 +242,6 @@ class AnotherRegistrationForm extends JFrame implements ActionListener {
         }
         //this runs the if statment called test
         if (!test) {
-            res.setText("Password needs to contain a capital.");
             return false;
         }
 
@@ -251,7 +255,6 @@ class AnotherRegistrationForm extends JFrame implements ActionListener {
         }
         //this runs the if statment of special characters 
         if (!test) {
-            res.setText("Password needs to contain a special character.");
             return false;
         }
 
@@ -264,11 +267,7 @@ class AnotherRegistrationForm extends JFrame implements ActionListener {
             }
         }
         //this runs a the function that requires the password to have a number
-        if (!test) {
-            res.setText("Password needs to contain a number.");
-            return false;
-        }
-        return true;
+        return test;
     }
 
 //Action performed for buttons when clicked they will do something

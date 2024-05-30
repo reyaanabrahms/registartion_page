@@ -10,6 +10,45 @@
 <project name="jSwig_for_POE" default="default" basedir=".">
     <description>Builds, tests, and runs the project jSwig_for_POE.</description>
     <import file="nbproject/build-impl.xml"/>
+    
+    <!-- Set global properties for this build -->
+    <property name="src.dir"     value="src"/>
+    <property name="build.dir"   value="build"/>
+    <property name="lib.dir"     value="lib"/>
+    <property name="test.dir"    value="test"/>
+
+    <!-- Create the build directory -->
+    <target name="init">
+        <mkdir dir="${build.dir}"/>
+    </target>
+
+    <!-- Compile the source code into the build directory -->
+    <target name="compile" depends="init" description="Compile the source">
+        <javac srcdir="${src.dir}" destdir="${build.dir}" includeantruntime="false">
+            <classpath>
+                <fileset dir="${lib.dir}">
+                    <include name="*.jar"/>
+                </fileset>
+            </classpath>
+        </javac>
+    </target>
+
+    <!-- Run the unit tests -->
+    <target name="test" depends="compile" description="Run the tests">
+        <junit printsummary="on" fork="true" haltonfailure="true">
+            <classpath>
+                <pathelement location="${build.dir}"/>
+                <fileset dir="${lib.dir}">
+                    <include name="*.jar"/>
+                </fileset>
+            </classpath>
+            <formatter type="brief" usefile="false"/>
+            <batchtest>
+                <fileset dir="${test.dir}" includes="**/*Test.class"/>
+            </batchtest>
+        </junit>
+    </target>
+    
     <!--
 
     There exist several targets which are by default empty and which can be 
