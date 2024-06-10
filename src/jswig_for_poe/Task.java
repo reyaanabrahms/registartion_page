@@ -6,7 +6,7 @@ package jswig_for_poe;
 
 /**
  *
- * @author life
+ * @author Reyaan
  */
 public class Task {
     String dev_username;
@@ -16,6 +16,7 @@ public class Task {
     int duration;
     String progressStatus;
 
+    //this is for the transfer of data so that the other classes will be able to find it aswell
     Task(String dev_username, String name, String description, int number, int duration, String progressStatus) {
         this.dev_username = dev_username;
         this.name = name;
@@ -41,4 +42,25 @@ public class Task {
     public String createTaskID(){
         return this.name.toUpperCase().substring(0, 2) + ":" + this.number + ":" + this.dev_username.toUpperCase().substring(this.dev_username.length() - 3);
     }
+    
+    public String getDevUsername() {
+        return dev_username;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public int getDuration() {
+        return duration;
+    }
+
+    public String getProgressStatus() {
+        return progressStatus;
+    }
+    
 }

@@ -145,9 +145,6 @@ public class TaskView extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void taskIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_taskIDActionPerformed
-Random rand = new Random();
-
-int rand_int1 = rand.nextInt(1000);
 
     }//GEN-LAST:event_taskIDActionPerformed
 
@@ -189,10 +186,7 @@ int rand_int1 = rand.nextInt(1000);
             }
         });
     }
- public static int getRandomNumber(int min, int max){
-         Random random = new Random();
-        return random.ints(min,max).findFirst().getAsInt();
- }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField DeveloperName;
     private javax.swing.JButton Submit;
