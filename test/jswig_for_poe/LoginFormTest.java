@@ -4,7 +4,6 @@
  */
 package jswig_for_poe;
 
-import java.awt.event.ActionEvent;
 import org.junit.Test;
 
 /**

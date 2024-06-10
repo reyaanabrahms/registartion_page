@@ -163,7 +163,7 @@ public class WelcomePage extends javax.swing.JFrame {
 
                 String taskDuration = showPopup("Task Input", "Enter the task duration:", "No task duration entered or dialog was cancelled.");
 
-                int duration = 0;
+                int duration;
                 try {
                     duration = Integer.parseInt(taskDuration);
                 }catch(NumberFormatException e) {

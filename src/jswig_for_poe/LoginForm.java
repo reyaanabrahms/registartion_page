@@ -79,11 +79,6 @@ public class LoginForm extends JFrame implements ActionListener {
     }
 
     public static void main(String[] args) {
-        SwingUtilities.invokeLater(new Runnable() {
-            public void run() {
-                new LoginForm();
-            }
-        });
+        SwingUtilities.invokeLater(LoginForm::new);
     }
-
 }

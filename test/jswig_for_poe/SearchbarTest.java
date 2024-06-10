@@ -13,7 +13,6 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
-import jswig_for_poe.Tasks;
 
 public class SearchbarTest {
     
@@ -79,9 +78,11 @@ public class SearchbarTest {
         
         Tasks.displayAllTasksReport();
         
-        String expectedOutput = "Developer: Edward Harrison, Task Name: Create Add Features, Description: Add new features, Task ID: 2, Duration: 8, Status: Doing\n" +
-                                "Developer: Samantha Paulson, Task Name: Create Reports, Description: Reports generation, Task ID: 3, Duration: 2, Status: Done\n" +
-                                "Developer: Glenda Oberholzer, Task Name: Add Arrays, Description: Array functionality, Task ID: 4, Duration: 11, Status: To Do\n";
+        String expectedOutput = """
+                                Developer: Edward Harrison, Task Name: Create Add Features, Description: Add new features, Task ID: 2, Duration: 8, Status: Doing
+                                Developer: Samantha Paulson, Task Name: Create Reports, Description: Reports generation, Task ID: 3, Duration: 2, Status: Done
+                                Developer: Glenda Oberholzer, Task Name: Add Arrays, Description: Array functionality, Task ID: 4, Duration: 11, Status: To Do
+                                """;
         assertEquals(expectedOutput, outContent.toString());
     }
 
@@ -92,10 +93,12 @@ public class SearchbarTest {
         
         Tasks.displayAllTasksReport();
         
-        String expectedOutput = "Developer: Mike Smith, Task Name: Create Login, Description: Login functionality, Task ID: 1, Duration: 5, Status: To Do\n" +
-                                "Developer: Edward Harrison, Task Name: Create Add Features, Description: Add new features, Task ID: 2, Duration: 8, Status: Doing\n" +
-                                "Developer: Samantha Paulson, Task Name: Create Reports, Description: Reports generation, Task ID: 3, Duration: 2, Status: Done\n" +
-                                "Developer: Glenda Oberholzer, Task Name: Add Arrays, Description: Array functionality, Task ID: 4, Duration: 11, Status: To Do\n";
+        String expectedOutput = """
+                                Developer: Mike Smith, Task Name: Create Login, Description: Login functionality, Task ID: 1, Duration: 5, Status: To Do
+                                Developer: Edward Harrison, Task Name: Create Add Features, Description: Add new features, Task ID: 2, Duration: 8, Status: Doing
+                                Developer: Samantha Paulson, Task Name: Create Reports, Description: Reports generation, Task ID: 3, Duration: 2, Status: Done
+                                Developer: Glenda Oberholzer, Task Name: Add Arrays, Description: Array functionality, Task ID: 4, Duration: 11, Status: To Do
+                                """;
         assertEquals(expectedOutput, outContent.toString());
     }
 }

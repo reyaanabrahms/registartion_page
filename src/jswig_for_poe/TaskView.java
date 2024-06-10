@@ -4,9 +4,6 @@
  */
 package jswig_for_poe;
 
-import static java.lang.Integer.max;
-import static java.lang.Integer.min;
-import java.util.Random;
 import javax.swing.JOptionPane;
 
 /**
@@ -180,10 +177,8 @@ public class TaskView extends javax.swing.JFrame {
     }//GEN-LAST:event_TaskNumberActionPerformed
 
     public static void main(String args[]) {
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new TaskView().setVisible(true);
-            }
+        java.awt.EventQueue.invokeLater(() -> {
+            new TaskView().setVisible(true);
         });
     }
     

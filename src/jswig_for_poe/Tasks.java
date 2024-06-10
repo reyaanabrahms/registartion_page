@@ -2,7 +2,6 @@ package jswig_for_poe;
 
 import java.util.ArrayList;
 import java.util.Optional;
-import jswig_for_poe.Task;
 
 public class Tasks {
     public static ArrayList<Task> tasks = new ArrayList<>();
@@ -75,7 +74,7 @@ public class Tasks {
     }
 
     private static void displayTaskDetails(Task task) {
-        System.out.printf("Developer: %s, Task Name: %s, Description: %s, Task ID: %d, Duration: %d, Status: %s%n",
-            task.getDevUsername(), task.getName(), task.getDescription(), task.printTaskDetails(), task.getDuration(), task.getProgressStatus());
+        System.out.printf("Developer: %s, Task Name: %s, Description: %s, Task ID: %s, Duration: %d, Status: %s%n",
+            task.getDevUsername(), task.getName(), task.getDescription(), task.createTaskID(), task.getDuration(), task.getProgressStatus());
     }
 }

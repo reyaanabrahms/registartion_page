@@ -306,9 +306,7 @@ class AnotherRegistrationForm extends JFrame implements ActionListener {
                 System.out.println("Password: \"" + CredentialStorage.password + "\"");
 
                 // Spawn the new login page.
-                SwingUtilities.invokeLater(() -> {
-                    new LoginForm();
-                });
+                SwingUtilities.invokeLater(LoginForm::new);
 
                 // Hide the window.
                 this.dispose();
@@ -329,8 +327,6 @@ class AnotherRegistrationForm extends JFrame implements ActionListener {
     }//end of action performed class
 
     public static void main(String[] args) throws Exception {
-        SwingUtilities.invokeLater(() -> {
-            new AnotherRegistrationForm();
-        });
+        SwingUtilities.invokeLater(AnotherRegistrationForm::new);
     }//end of main
 }//end of jframe class

@@ -92,7 +92,7 @@ public class CredentialStorage {
     }
 
     private static void displayTaskDetails(Task task) {
-        System.out.printf("Developer: %s, Task Name: %s, Description: %s, Task ID: %d, Duration: %d, Status: %s%n",
-            task.getDevUsername(), task.getName(), task.getDescription(), task.toString(), task.getDuration(), task.getProgressStatus());
+        System.out.printf("Developer: %s, Task Name: %s, Description: %s, Task ID: %s, Duration: %d, Status: %s%n",
+            task.getDevUsername(), task.getName(), task.getDescription(), task.createTaskID(), task.getDuration(), task.getProgressStatus());
     }
 }

@@ -26,13 +26,13 @@ public class Task {
         this.progressStatus = progressStatus;
     }
     
-    public String printTaskDetails(){
+    public String getTaskDetails(){
         return "Task id: " + this.createTaskID() + ", name: " + this.name + ", description: " + this.description + ", number: " + this.number + ", duration: " + this.duration + ", status: " + this.progressStatus;
     }
     
     @Override
     public String toString(){
-        return this.printTaskDetails();
+        return this.getTaskDetails();
     }
     
     public boolean checkTaskDescription() {

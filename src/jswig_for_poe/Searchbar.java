@@ -9,10 +9,6 @@ package jswig_for_poe;
  * @author Reyaan
  */
 import javax.swing.*;
-import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import jswig_for_poe.Tasks;
 
 public class Searchbar extends JFrame {
 
