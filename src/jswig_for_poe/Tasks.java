@@ -34,35 +34,56 @@ public class Tasks {
         return total;
     }
 
-    public static void displayDoneTasks() {
-        tasks.stream()
-            .filter(task -> "Done".equalsIgnoreCase(task.getProgressStatus()))
-            .forEach(task -> System.out.printf("Developer: %s, Task Name: %s, Duration: %d%n",
-                task.getDevUsername(), task.getName(), task.getDuration()));
+    public static Array<Task> getDoneTasks() {
+        Array<Task> tasks = tasks.stream()
+            .filter(task -> "Done".equalsIgnoreCase(task.getProgressStatus()));
+        return tasks;
     }
 
-    public static void displayLongestTask() {
-        Optional<Task> longestTask = tasks.stream().max((t1, t2) -> Integer.compare(t1.getDuration(), t2.getDuration()));
-        if (longestTask.isPresent()) {
-            Task task = longestTask.get();
-            System.out.printf("Developer: %s, Duration: %d%n", task.getDevUsername(), task.getDuration());
-        } else {
-            System.out.println("No tasks found.");
+    public static void displayDoneTasks() {
+        Array<Task> tasks = getDoneTasks();
+        for (Task task: tasks) {
+            displayTaskDetails(task);
         }
     }
 
-    public static void searchTaskByName(String name) {
-        tasks.stream()
-            .filter(task -> task.getName().equalsIgnoreCase(name))
-            .forEach(task -> System.out.printf("Task Name: %s, Developer: %s, Status: %s%n",
-                task.getName(), task.getDevUsername(), task.getProgressStatus()));
+    public static Optional<Task> getLongestTask(){
+        Optional<Task> longestTask = tasks.stream().max((t1, t2) -> Integer.compare(t1.getDuration(), t2.getDuration()));
+        return longestTask;
+    }
+    
+    public static void displayLongestTask() {
+        Optional<Task> longestTask = getLongestTask();
+        if (longestTask.isPresent()) {
+            Task task = longestTask.get();
+            displayTaskDetails(task);
+        } else {
+            System.out.errprintln("No tasks found.");
+        }
     }
 
-    public static void searchTasksByDeveloper(String devUsername) {
-        tasks.stream()
-            .filter(task -> task.getDevUsername().equalsIgnoreCase(devUsername))
-            .forEach(task -> System.out.printf("Task Name: %s, Status: %s%n",
-                task.getName(), task.getProgressStatus()));
+    public static Array<Task> searchTaskByName(String name) {
+        Array<Task> tasks = tasks.stream().filter(task -> task.getName().equalsIgnoreCase(name));
+        return tasks;
+    }
+
+    public static void displayTasksByName(String name) {
+        Array<Task> tasks = searchTaskByName(name);
+        for (Task t: tasks) {
+           displayTaskDetails(t); 
+        }
+    }
+    
+    public static Array<Task> searchTasksByDeveloper(String devUsername) {
+        Array<Task> tasks = tasks.stream().filter(task -> task.getDevUsername().equalsIgnoreCase(devUsername));
+        return tasks;
+    }
+
+    public static void displayTasksByDeveloper(String devUsername) {
+        Array<Task> tasks = searchTasksByDeveloper(devUsername);
+        for (Task t: tasks) {
+           displayTaskDetails(t); 
+        }
     }
 
     public static void deleteTaskByName(String name) {
