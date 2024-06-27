@@ -5,8 +5,9 @@
 package jswig_for_poe;
 
 /**
- *
- * @author Reyaan
+ * The SearchbarTest class tests the functionalities of the Tasks class, ensuring proper task management operations.
+ * 
+ * Author: Reyaan
  */
 import org.junit.Before;
 import org.junit.Test;
@@ -16,6 +17,7 @@ import java.io.PrintStream;
 
 public class SearchbarTest {
     
+    // Set up the test environment by clearing and adding initial tasks
     @Before
     public void setUp() {
         Tasks.clearTasks();
@@ -25,6 +27,7 @@ public class SearchbarTest {
         Tasks.add_new_task("Add Arrays", "Glenda Oberholzer", "Array functionality", 11, "To Do");
     }
 
+    // Test displaying tasks that are done
     @Test
     public void testDisplayDoneTasks() {
         ByteArrayOutputStream outContent = new ByteArrayOutputStream();
@@ -36,6 +39,7 @@ public class SearchbarTest {
         assertEquals(expectedOutput, outContent.toString());
     }
 
+    // Test displaying the task with the longest duration
     @Test
     public void testDisplayLongestTask() {
         ByteArrayOutputStream outContent = new ByteArrayOutputStream();
@@ -47,6 +51,7 @@ public class SearchbarTest {
         assertEquals(expectedOutput, outContent.toString());
     }
 
+    // Test searching for a task by name
     @Test
     public void testSearchTaskByName() {
         ByteArrayOutputStream outContent = new ByteArrayOutputStream();
@@ -58,6 +63,7 @@ public class SearchbarTest {
         assertEquals(expectedOutput, outContent.toString());
     }
 
+    // Test searching for tasks by developer username
     @Test
     public void testSearchTasksByDeveloper() {
         ByteArrayOutputStream outContent = new ByteArrayOutputStream();
@@ -69,6 +75,7 @@ public class SearchbarTest {
         assertEquals(expectedOutput, outContent.toString());
     }
 
+    // Test deleting a task by name
     @Test
     public void testDeleteTaskByName() {
         Tasks.deleteTaskByName("Create Login");
@@ -86,6 +93,7 @@ public class SearchbarTest {
         assertEquals(expectedOutput, outContent.toString());
     }
 
+    // Test displaying a report of all tasks
     @Test
     public void testDisplayAllTasksReport() {
         ByteArrayOutputStream outContent = new ByteArrayOutputStream();

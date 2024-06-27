@@ -14,6 +14,10 @@ import javax.swing.JOptionPane;
  *
  * @author Reyaan
  */
+/**
+ * WelcomePage is a JFrame class that serves as the main GUI for the application.
+ * It includes buttons for adding tasks, showing a report, and quitting the application.
+ */
 public class WelcomePage extends javax.swing.JFrame {
 
     public WelcomePage() {
@@ -149,7 +153,7 @@ public class WelcomePage extends javax.swing.JFrame {
             System.out.println(t.toString());
         }
     }//GEN-LAST:event_showReportButtonClicked
-
+// This is for the add task button
     private void addTaskButtonPressed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addTaskButtonPressed
         // TODO add your handling
         String taskName = showPopup("Task Input", "Enter the task name:", "No task name entered or dialog was cancelled.");
@@ -182,7 +186,7 @@ public class WelcomePage extends javax.swing.JFrame {
             }
         }
     }//GEN-LAST:event_addTaskButtonPressed
-
+ // Shows a popup dialog for input and returns the input string
     String showPopup(String title, String body, String error) {
         String str = JOptionPane.showInputDialog(null, body, title, JOptionPane.QUESTION_MESSAGE);
         if (str != null && !str.trim().isEmpty()) {
@@ -193,6 +197,7 @@ public class WelcomePage extends javax.swing.JFrame {
         }
     }
 
+    // Shows a progress selector dialog and returns the selected status
     String showProgressSelector() {
         String[] statuses = {"To Do", "Doing", "Done"};
         String taskStatus = (String) JOptionPane.showInputDialog(null, "Select task Status:", "Task Status", JOptionPane.QUESTION_MESSAGE, null,
@@ -200,6 +205,7 @@ public class WelcomePage extends javax.swing.JFrame {
         return taskStatus;
     }
 
+     // Refreshes the task list displayed in the GUI
     void refreshTaskList() {
         this.jList1.removeAll();
         DefaultListModel<String> model = new DefaultListModel<>();
@@ -209,11 +215,13 @@ public class WelcomePage extends javax.swing.JFrame {
         this.jList1.setModel(model);
     }
 
+    // Closes the window
     public void close() {
         WindowEvent closeWindow = new WindowEvent(this, WindowEvent.WINDOW_CLOSING);
         Toolkit.getDefaultToolkit().getSystemEventQueue().postEvent(closeWindow);
     }
 
+    
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
